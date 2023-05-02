@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbnAmroApp.ConsoleApp", "AbnAmroApp.ConsoleApp.csproj", "{D2CA36EC-ECAE-4789-B40A-E0BBD27ECFFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbnAmroApp.ConsoleAppTests", "..\AbnAmroApp.ConsoleAppTests\AbnAmroApp.ConsoleAppTests.csproj", "{EA2182AA-61F1-4889-B384-14A0A93183A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbnAmroApp.ConsoleAppTests", "..\AbnAmroApp.ConsoleAppTests\AbnAmroApp.ConsoleAppTests.csproj", "{EA2182AA-61F1-4889-B384-14A0A93183A7}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AbnAmroApp.Database", "..\AbnAmroApp.Database\AbnAmroApp.Database.sqlproj", "{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{EA2182AA-61F1-4889-B384-14A0A93183A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA2182AA-61F1-4889-B384-14A0A93183A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA2182AA-61F1-4889-B384-14A0A93183A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
