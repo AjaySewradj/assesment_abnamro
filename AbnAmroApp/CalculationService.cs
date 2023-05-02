@@ -6,7 +6,9 @@ namespace AbnAmroApp.ConsoleApp
 {
     public class CalculationService
     {
-        public IEnumerable<string> Calculate(string firstName, string lastName)
+        public IList<string> Calculate(string firstName, string lastName) => CalculateInner(firstName, lastName).ToList();
+
+        private IEnumerable<string> CalculateInner(string firstName, string lastName)
         {
             if (string.IsNullOrWhiteSpace(firstName)) throw new ArgumentNullException(nameof(firstName));
             if (string.IsNullOrWhiteSpace(lastName)) throw new ArgumentNullException(nameof(lastName));
@@ -21,9 +23,6 @@ namespace AbnAmroApp.ConsoleApp
             }
         }
 
-        public bool IsDivisibleBy(int number, int divisor)
-        {
-            return number % divisor == 0;
-        }
+        public bool IsDivisibleBy(int number, int divisor) => number % divisor == 0;
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using AbnAmroApp.ConsoleApp;
 using FluentAssertions;
 using Xunit;
@@ -51,6 +53,73 @@ namespace AbnAmroApp.ConsoleAppTests
 
             // assert
             result.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Calculate_GivenHardcodedRange_WhenCalculateIsCalled_ShouldReturnExpectedRange()
+        {
+            // arrange
+            var service = new CalculationService();
+
+            // act
+            var result = service.Calculate("John", "Doe");
+
+            // assert
+            result.Count().Should().Be(100);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        public void Calculate_GivenInvalidFirstName_WhenCalculateIsCalled_ShouldThrowException(string firstName)
+        {
+            // arrange
+            var service = new CalculationService();
+
+            // act
+            Action action = () => service.Calculate(firstName, "Doe");
+
+            // assert
+            action.Should().Throw<ArgumentNullException>().WithParameterName("firstName");
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        public void Calculate_GivenInvalidLastName_WhenCalculateIsCalled_ShouldThrowException(string lastName)
+        {
+            // arrange
+            var service = new CalculationService();
+
+            // act
+            Action action = () => service.Calculate("John", lastName);
+
+            // assert
+            action.Should().Throw<ArgumentNullException>().WithParameterName("lastName");
+        }
+
+        [Fact]
+        public void Calculate_GivenValidInput_WhenCalculateIsCalled_ShouldReturnExpectedValues()
+        {
+            // arrange
+            const string firstName = "John";
+            const string lastName = "Doe";
+            const string fullName = $"{firstName} {lastName}";
+
+            var service = new CalculationService();
+
+            // act
+            var result = service.Calculate(firstName, lastName);
+
+            // assert
+            result.First().Should().Be("1");
+            result.Last().Should().Be(lastName);
+            result[1].Should().Be("2");
+            result[2].Should().Be(firstName);
+            result[3].Should().Be("4");
+            result[4].Should().Be(lastName);
+            result[5].Should().Be(firstName);
+            result[14].Should().Be(fullName);
         }
     }
 }
