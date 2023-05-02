@@ -16,7 +16,10 @@ namespace AbnAmroApp.ConsoleApp
             Console.WriteLine($"\nThanks. You've entered '{firstName} {lastName}'");
 
             var calculationService = new CalculationService();
-            var results = calculationService.Calculate(firstName, lastName);
+            //var results = calculationService.Calculate(firstName, lastName);
+
+            var service = new CalculationRepository();
+            var results = service.Calculate();
 
             foreach (string line in results)
             {
