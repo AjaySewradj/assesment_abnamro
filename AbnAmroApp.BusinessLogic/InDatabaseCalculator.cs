@@ -4,11 +4,11 @@ using System.Globalization;
 
 namespace AbnAmroApp.BusinessLogic
 {
-    public class CalculationRepository
+    public class InDatabaseCalculator
     {
         private readonly string _connectionString;
 
-        public CalculationRepository()
+        public InDatabaseCalculator()
         {
             // TODO: Should get connectionstring from appsettings
             _connectionString = "Data Source=DESKTOP-N5EE6BT\\SQLEXPRESS;Initial Catalog=AbnAmroDemoDb;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";

@@ -2,27 +2,24 @@
 {
     public class CalculationService
     {
-        public IList<string> Calculate(string firstName, string lastName) => CalculateInner(firstName, lastName).ToList();
+        private readonly InMemoryCalculator _inMemoryCalculator;
+        private readonly InDatabaseCalculator _inDatabaseCalculator;
 
-        private IEnumerable<string> CalculateInner(string firstName, string lastName)
+        public CalculationService(InMemoryCalculator inMemoryCalculator, InDatabaseCalculator inDatabaseCalculator)
         {
-            if (string.IsNullOrWhiteSpace(firstName)) throw new ArgumentNullException(nameof(firstName));
-            if (string.IsNullOrWhiteSpace(lastName)) throw new ArgumentNullException(nameof(lastName));
-
-            var range = Enumerable.Range(1, 100);
-            foreach (int number in range)
-            {
-                if (IsDivisibleBy(number, 3) && IsDivisibleBy(number, 5)) yield return $"{firstName} {lastName}";
-                else if (IsDivisibleBy(number, 3)) yield return firstName;
-                else if (IsDivisibleBy(number, 5)) yield return lastName;
-                else yield return number.ToString();
-            }
+            _inMemoryCalculator = inMemoryCalculator;
+            _inDatabaseCalculator = inDatabaseCalculator;
         }
 
-        public bool IsDivisibleBy(int number, int divisor)
+        public IList<string> Calculate(string firstName, string lastName)
         {
-            if (divisor <= 0) return false;
-            return number % divisor == 0;
+            // TODO: Make selection configurable
+            //return _inMemoryCalculator.Calculate(firstName, lastName);
+            return _inDatabaseCalculator.Calculate(firstName, lastName);
         }
+
+
+        private IList<string> CalculateInMemory(string firstName, string lastName) => _inMemoryCalculator.Calculate(firstName, lastName);
+        private IList<string> CalculateInDatabase(string firstName, string lastName) => _inDatabaseCalculator.Calculate(firstName, lastName);
     }
 }

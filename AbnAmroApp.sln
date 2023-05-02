@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbnAmroApp.BusinessLogic", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7B3C53A5-3C68-4733-B9C3-895A4202259E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbnAmroApp.BusinessLogic.Tests", "AbnAmroApp.BusinessLogic.Tests\AbnAmroApp.BusinessLogic.Tests.csproj", "{71160532-8596-4D78-94E1-5E4ECC6B05A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{D4289FC2-C2EA-4D06-BA18-249AD5AB8A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4289FC2-C2EA-4D06-BA18-249AD5AB8A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4289FC2-C2EA-4D06-BA18-249AD5AB8A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71160532-8596-4D78-94E1-5E4ECC6B05A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71160532-8596-4D78-94E1-5E4ECC6B05A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71160532-8596-4D78-94E1-5E4ECC6B05A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71160532-8596-4D78-94E1-5E4ECC6B05A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4EE67628-1F09-48D9-A819-C2BE005F69A5} = {7B3C53A5-3C68-4733-B9C3-895A4202259E}
 		{8D9F71D2-9A13-420D-8959-51BBD97CC6AB} = {7B3C53A5-3C68-4733-B9C3-895A4202259E}
+		{71160532-8596-4D78-94E1-5E4ECC6B05A8} = {7B3C53A5-3C68-4733-B9C3-895A4202259E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CCCEB7D-E30C-4611-8203-CFDC93DA246A}
