@@ -1,10 +1,9 @@
 using System;
 using System.Linq;
-using AbnAmroApp.ConsoleApp;
 using FluentAssertions;
 using Xunit;
 
-namespace AbnAmroApp.ConsoleAppTests
+namespace AbnAmroApp.ConsoleApp.Tests
 {
     public class CalculationServiceTests
     {
