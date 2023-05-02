@@ -66,4 +66,7 @@
     <Build Include="dbo\Functions\Scalar-valued Functions\fnCalculate.sql" />
     <Build Include="dbo\Functions\Table-valued Functions\fnCalculateAll.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="AbnAmroApp.Database.publish.xml" />
+  </ItemGroup>
 </Project>

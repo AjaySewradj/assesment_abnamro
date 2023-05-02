@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using AbnAmroApp.BusinessLogic;
 using FluentAssertions;
 using Xunit;
 

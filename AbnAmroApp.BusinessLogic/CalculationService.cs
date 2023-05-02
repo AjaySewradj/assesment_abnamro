@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace AbnAmroApp.ConsoleApp
+﻿namespace AbnAmroApp.BusinessLogic
 {
     public class CalculationService
     {

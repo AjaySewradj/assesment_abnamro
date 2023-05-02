@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AbnAmroApp.ConsoleApp\AbnAmroApp.ConsoleApp.csproj" />
+    <ProjectReference Include="..\AbnAmroApp.BusinessLogic\AbnAmroApp.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>
