@@ -57,6 +57,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="fnCalculateAllTestResultCount.cs">
+      <SubType>Designer</SubType>
+    </Compile>
+    <Compile Include="fnCalculateTests\fnCalculateTestOutputFirstName.cs">
+      <SubType>Designer</SubType>
+    </Compile>
+    <Compile Include="fnCalculateTests\fnCalculateTestOutputFullName.cs">
+      <SubType>Designer</SubType>
+    </Compile>
+    <Compile Include="fnCalculateTests\fnCalculateTestOutputLastName.cs">
+      <SubType>Designer</SubType>
+    </Compile>
+    <Compile Include="fnCalculateTests\fnCalculateTestOutputNumber.cs">
+      <SubType>Designer</SubType>
+    </Compile>
     <Compile Include="fnIsDivisibleByTests\fnIsDivisibleByNegativeTest.cs">
       <SubType>Designer</SubType>
     </Compile>
@@ -73,6 +88,21 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="fnCalculateAllTestResultCount.resx">
+      <DependentUpon>fnCalculateAllTestResultCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fnCalculateTests\fnCalculateTestOutputFirstName.resx">
+      <DependentUpon>fnCalculateTestOutputFirstName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fnCalculateTests\fnCalculateTestOutputFullName.resx">
+      <DependentUpon>fnCalculateTestOutputFullName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fnCalculateTests\fnCalculateTestOutputLastName.resx">
+      <DependentUpon>fnCalculateTestOutputLastName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fnCalculateTests\fnCalculateTestOutputNumber.resx">
+      <DependentUpon>fnCalculateTestOutputNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fnIsDivisibleByTests\fnIsDivisibleByNegativeTest.resx">
       <DependentUpon>fnIsDivisibleByNegativeTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,7 +113,9 @@
       <DependentUpon>fnIsDivisibleByZeroTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="fnCalculateAllTests\" />
+  </ItemGroup>
   <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
     <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
