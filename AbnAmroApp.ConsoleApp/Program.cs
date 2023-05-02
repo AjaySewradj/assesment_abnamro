@@ -14,6 +14,8 @@ namespace AbnAmroApp.ConsoleApp
 
             Console.WriteLine($"\nThanks. You've entered '{firstName} {lastName}'");
 
+            // TODO: Add configuration
+            // TODO: Add dependency injection
             var calculationService = new CalculationService(new InMemoryCalculator(), new InDatabaseCalculator());
             var results = calculationService.Calculate(firstName, lastName);
 
