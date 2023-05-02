@@ -20,7 +20,7 @@ namespace AbnAmroApp.ConsoleApp
             //var results = calculationService.Calculate(firstName, lastName);
 
             var service = new CalculationRepository();
-            var results = service.Calculate();
+            var results = service.Calculate(firstName, lastName);
 
             foreach (string line in results)
             {
