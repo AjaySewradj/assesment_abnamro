@@ -1,4 +1,5 @@
 ﻿using System;
+using AbnAmroApp.BusinessLogic;
 
 namespace AbnAmroApp.ConsoleApp
 {
@@ -7,24 +8,33 @@ namespace AbnAmroApp.ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome!");
-            Console.WriteLine("\nPlease enter your first name:");
-            var firstName = Console.ReadLine();
 
-            Console.WriteLine("\nPlease enter your last name:");
-            var lastName = Console.ReadLine();
+            string firstName = GetUserInput("\nPlease enter your first name:");
+            string lastName = GetUserInput("\nPlease enter your last name:");
 
             Console.WriteLine($"\nThanks. You've entered '{firstName} {lastName}'");
 
-            var calculationService = new CalculationService();
-            //var results = calculationService.Calculate(firstName, lastName);
-
-            var service = new CalculationRepository();
-            var results = service.Calculate();
+            // TODO: Add configuration
+            // TODO: Add dependency injection
+            var calculationService = new CalculationService(new InMemoryCalculator(), new InDatabaseCalculator());
+            var results = calculationService.Calculate(firstName, lastName);
 
             foreach (string line in results)
             {
                 Console.WriteLine(line);
             }
+        }
+
+        private static string GetUserInput(string prompt)
+        {
+            string input = "";
+            while (string.IsNullOrWhiteSpace(input))
+            {
+                Console.WriteLine(prompt);
+                input = Console.ReadLine();
+            }
+
+            return input;
         }
     }
 }

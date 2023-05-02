@@ -3,9 +3,9 @@ using System.Linq;
 using FluentAssertions;
 using Xunit;
 
-namespace AbnAmroApp.ConsoleApp.Tests
+namespace AbnAmroApp.BusinessLogic.Tests
 {
-    public class CalculationServiceTests
+    public class InMemoryCalculatorTests
     {
         [Fact]
         public void IsDivisibleBy_GivenANumber_WhenTheDivisorIsZero_ShouldReturnFalse()
@@ -13,7 +13,7 @@ namespace AbnAmroApp.ConsoleApp.Tests
             // arrange
             int number = 10;
             int divisor = 0;
-            var service = new CalculationService();
+            var service = new InMemoryCalculator();
 
             // act
             bool result = service.IsDivisibleBy(number, divisor);
@@ -38,7 +38,7 @@ namespace AbnAmroApp.ConsoleApp.Tests
         public void IsDivisibleBy_GivenANumberDividableByX_WhenTheDivisorIsX_ShouldReturnTrue(int number, int divisor)
         {
             // arrange
-            var service = new CalculationService();
+            var service = new InMemoryCalculator();
 
             // act
             bool result = service.IsDivisibleBy(number, divisor);
@@ -60,7 +60,7 @@ namespace AbnAmroApp.ConsoleApp.Tests
         public void IsDivisibleBy_GivenANumberNotDividableByX_WhenTheDivisorIsX_ShouldReturnFalse(int number, int divisor)
         {
             // arrange
-            var service = new CalculationService();
+            var service = new InMemoryCalculator();
 
             // act
             bool result = service.IsDivisibleBy(number, divisor);
@@ -73,7 +73,7 @@ namespace AbnAmroApp.ConsoleApp.Tests
         public void Calculate_GivenHardcodedRange_WhenCalculateIsCalled_ShouldReturnExpectedRange()
         {
             // arrange
-            var service = new CalculationService();
+            var service = new InMemoryCalculator();
 
             // act
             var result = service.Calculate("John", "Doe");
@@ -88,7 +88,7 @@ namespace AbnAmroApp.ConsoleApp.Tests
         public void Calculate_GivenInvalidFirstName_WhenCalculateIsCalled_ShouldThrowException(string firstName)
         {
             // arrange
-            var service = new CalculationService();
+            var service = new InMemoryCalculator();
 
             // act
             Action action = () => service.Calculate(firstName, "Doe");
@@ -103,7 +103,7 @@ namespace AbnAmroApp.ConsoleApp.Tests
         public void Calculate_GivenInvalidLastName_WhenCalculateIsCalled_ShouldThrowException(string lastName)
         {
             // arrange
-            var service = new CalculationService();
+            var service = new InMemoryCalculator();
 
             // act
             Action action = () => service.Calculate("John", lastName);
@@ -120,7 +120,7 @@ namespace AbnAmroApp.ConsoleApp.Tests
             const string lastName = "Doe";
             const string fullName = $"{firstName} {lastName}";
 
-            var service = new CalculationService();
+            var service = new InMemoryCalculator();
 
             // act
             var result = service.Calculate(firstName, lastName);

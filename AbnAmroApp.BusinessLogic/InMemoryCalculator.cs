@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace AbnAmroApp.ConsoleApp
+﻿namespace AbnAmroApp.BusinessLogic
 {
-    public class CalculationService
+    public class InMemoryCalculator
     {
         public IList<string> Calculate(string firstName, string lastName) => CalculateInner(firstName, lastName).ToList();
 
