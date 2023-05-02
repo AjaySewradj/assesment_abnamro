@@ -23,6 +23,10 @@ namespace AbnAmroApp.ConsoleApp
             }
         }
 
-        public bool IsDivisibleBy(int number, int divisor) => number % divisor == 0;
+        public bool IsDivisibleBy(int number, int divisor)
+        {
+            if (divisor <= 0) return false;
+            return number % divisor == 0;
+        }
     }
 }

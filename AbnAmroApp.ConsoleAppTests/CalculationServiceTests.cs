@@ -8,6 +8,21 @@ namespace AbnAmroApp.ConsoleAppTests
 {
     public class CalculationServiceTests
     {
+        [Fact]
+        public void IsDivisibleBy_GivenANumber_WhenTheDivisorIsZero_ShouldReturnFalse()
+        {
+            // arrange
+            int number = 10;
+            int divisor = 0;
+            var service = new CalculationService();
+
+            // act
+            bool result = service.IsDivisibleBy(number, divisor);
+
+            // assert
+            result.Should().BeFalse();
+        }
+
         [Theory]
         [InlineData(0, 3)]
         [InlineData(3, 3)]
