@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbnAmroApp.ConsoleApp.Tests
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AbnAmroApp.Database", "AbnAmroApp.Database\AbnAmroApp.Database.sqlproj", "{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbnAmroApp.Database.Tests", "AbnAmroApp.Database.Tests\AbnAmroApp.Database.Tests.csproj", "{8D9F71D2-9A13-420D-8959-51BBD97CC6AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3F5F5916-98FB-434F-AC73-DC1E7B59EFBF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8D9F71D2-9A13-420D-8959-51BBD97CC6AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D9F71D2-9A13-420D-8959-51BBD97CC6AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D9F71D2-9A13-420D-8959-51BBD97CC6AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D9F71D2-9A13-420D-8959-51BBD97CC6AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
