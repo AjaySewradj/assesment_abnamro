@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbnAmro.App", "AbnAmro.App.csproj", "{D2CA36EC-ECAE-4789-B40A-E0BBD27ECFFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbnAmroApp.ConsoleApp", "AbnAmroApp.ConsoleApp.csproj", "{D2CA36EC-ECAE-4789-B40A-E0BBD27ECFFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
