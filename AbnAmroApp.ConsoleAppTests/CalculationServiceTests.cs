@@ -120,6 +120,8 @@ namespace AbnAmroApp.ConsoleAppTests
             result[4].Should().Be(lastName);
             result[5].Should().Be(firstName);
             result[14].Should().Be(fullName);
+            result[88].Should().Be("89");
+            result[89].Should().Be(fullName);
         }
     }
 }
