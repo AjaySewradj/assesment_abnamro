@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
 using AbnAmroApp.BusinessLogic;
 
 namespace AbnAmroApp.ConsoleApp
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             Console.WriteLine("Welcome!");
 
@@ -17,7 +18,7 @@ namespace AbnAmroApp.ConsoleApp
             // TODO: Add configuration
             // TODO: Add dependency injection
             var calculationService = new CalculationService(new InMemoryCalculator(), new InDatabaseCalculator());
-            var results = calculationService.Calculate(firstName, lastName);
+            var results = await calculationService.Calculate(firstName, lastName);
 
             foreach (string line in results)
             {

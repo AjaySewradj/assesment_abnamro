@@ -1,25 +1,21 @@
 ﻿namespace AbnAmroApp.BusinessLogic
 {
-    public class CalculationService
+    public class CalculationService : ICalculationService
     {
-        private readonly InMemoryCalculator _inMemoryCalculator;
-        private readonly InDatabaseCalculator _inDatabaseCalculator;
+        private readonly IInMemoryCalculator _inMemoryCalculator;
+        private readonly IInDatabaseCalculator _inDatabaseCalculator;
 
-        public CalculationService(InMemoryCalculator inMemoryCalculator, InDatabaseCalculator inDatabaseCalculator)
+        public CalculationService(IInMemoryCalculator inMemoryCalculator, IInDatabaseCalculator inDatabaseCalculator)
         {
             _inMemoryCalculator = inMemoryCalculator;
             _inDatabaseCalculator = inDatabaseCalculator;
         }
 
-        public IList<string> Calculate(string firstName, string lastName)
+        public async Task<IList<string>> Calculate(string firstName, string lastName)
         {
             // TODO: Make selection configurable
-            //return _inMemoryCalculator.Calculate(firstName, lastName);
-            return _inDatabaseCalculator.Calculate(firstName, lastName);
+            return await _inMemoryCalculator.Calculate(firstName, lastName);
+            //return await _inDatabaseCalculator.Calculate(firstName, lastName);
         }
-
-
-        private IList<string> CalculateInMemory(string firstName, string lastName) => _inMemoryCalculator.Calculate(firstName, lastName);
-        private IList<string> CalculateInDatabase(string firstName, string lastName) => _inDatabaseCalculator.Calculate(firstName, lastName);
     }
 }

@@ -1,8 +1,12 @@
 ﻿namespace AbnAmroApp.BusinessLogic
 {
-    public class InMemoryCalculator
+    public class InMemoryCalculator : IInMemoryCalculator
     {
-        public IList<string> Calculate(string firstName, string lastName) => CalculateInner(firstName, lastName).ToList();
+        public async Task<IList<string>> Calculate(string firstName, string lastName)
+        {
+            var result = CalculateInner(firstName, lastName).ToList();
+            return await Task.FromResult(result);
+        }
 
         private IEnumerable<string> CalculateInner(string firstName, string lastName)
         {

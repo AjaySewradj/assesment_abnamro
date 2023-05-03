@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
 
@@ -70,13 +71,13 @@ namespace AbnAmroApp.BusinessLogic.Tests
         }
 
         [Fact]
-        public void Calculate_GivenHardcodedRange_WhenCalculateIsCalled_ShouldReturnExpectedRange()
+        public async Task Calculate_GivenHardcodedRange_WhenCalculateIsCalled_ShouldReturnExpectedRange()
         {
             // arrange
             var service = new InMemoryCalculator();
 
             // act
-            var result = service.Calculate("John", "Doe");
+            var result = await service.Calculate("John", "Doe");
 
             // assert
             result.Count().Should().Be(100);
@@ -91,10 +92,10 @@ namespace AbnAmroApp.BusinessLogic.Tests
             var service = new InMemoryCalculator();
 
             // act
-            Action action = () => service.Calculate(firstName, "Doe");
+            Func<Task> action = async () => await service.Calculate(firstName, "Doe");
 
             // assert
-            action.Should().Throw<ArgumentNullException>().WithParameterName("firstName");
+            action.Should().ThrowAsync<ArgumentNullException>().WithParameterName("firstName");
         }
 
         [Theory]
@@ -106,14 +107,14 @@ namespace AbnAmroApp.BusinessLogic.Tests
             var service = new InMemoryCalculator();
 
             // act
-            Action action = () => service.Calculate("John", lastName);
+            Func<Task> action = async () => await service.Calculate("John", lastName);
 
             // assert
-            action.Should().Throw<ArgumentNullException>().WithParameterName("lastName");
+            action.Should().ThrowAsync<ArgumentNullException>().WithParameterName("lastName");
         }
 
         [Fact]
-        public void Calculate_GivenValidInput_WhenCalculateIsCalled_ShouldReturnExpectedValues()
+        public async Task Calculate_GivenValidInput_WhenCalculateIsCalled_ShouldReturnExpectedValues()
         {
             // arrange
             const string firstName = "John";
@@ -123,7 +124,7 @@ namespace AbnAmroApp.BusinessLogic.Tests
             var service = new InMemoryCalculator();
 
             // act
-            var result = service.Calculate(firstName, lastName);
+            var result = await service.Calculate(firstName, lastName);
 
             // assert
             result.First().Should().Be("1");

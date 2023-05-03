@@ -1,10 +1,8 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using System.Globalization;
+﻿using System.Data.SqlClient;
 
 namespace AbnAmroApp.BusinessLogic
 {
-    public class InDatabaseCalculator
+    public class InDatabaseCalculator : IInDatabaseCalculator
     {
         private readonly string _connectionString;
 
@@ -14,12 +12,13 @@ namespace AbnAmroApp.BusinessLogic
             _connectionString = "Data Source=DESKTOP-N5EE6BT\\SQLEXPRESS;Initial Catalog=AbnAmroDemoDb;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
         }
 
-        public List<string> Calculate(string firstName, string lastName)
+        public async Task<IList<string>> Calculate(string firstName, string lastName)
         {
-            return CalculateOnDatabase(firstName, lastName);
+            var result = CalculateOnDatabase(firstName, lastName);
+            return await Task.FromResult(result);
         }
 
-        private List<string> CalculateOnDatabase(string firstName, string lastName)
+        private IList<string> CalculateOnDatabase(string firstName, string lastName)
         {
             var result = new List<string>();
 
