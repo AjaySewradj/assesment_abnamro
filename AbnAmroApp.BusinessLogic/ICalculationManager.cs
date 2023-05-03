@@ -1,4 +1,4 @@
-namespace AbnAmroApp.WebApi.Controllers
+namespace AbnAmroApp.BusinessLogic
 {
     public interface ICalculationManager
     {

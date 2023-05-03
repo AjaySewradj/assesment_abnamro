@@ -1,5 +1,4 @@
 using AbnAmroApp.BusinessLogic;
-using AbnAmroApp.WebApi.Controllers;
 
 namespace AbnAmroApp.WebApi
 {
@@ -16,9 +15,9 @@ namespace AbnAmroApp.WebApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddScoped<IInMemoryCalculator, InMemoryCalculator>();
-            builder.Services.AddScoped<IInDatabaseCalculator, InDatabaseCalculator>();
-            builder.Services.AddScoped<ICalculationService, CalculationService>();
+            builder.Services.AddTransient<IInMemoryCalculator, InMemoryCalculator>();
+            builder.Services.AddTransient<IInDatabaseCalculator, InDatabaseCalculator>();
+            builder.Services.AddSingleton<ICalculationService, CalculationService>();
             builder.Services.AddSingleton<ICalculationManager, CalculationManager>();
 
             var app = builder.Build();
