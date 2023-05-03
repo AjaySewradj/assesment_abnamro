@@ -1,4 +1,4 @@
-﻿namespace AbnAmroApp.BusinessLogic
+﻿namespace AbnAmroApp.BusinessLogic.Services
 {
     public interface IInDatabaseCalculator
     {

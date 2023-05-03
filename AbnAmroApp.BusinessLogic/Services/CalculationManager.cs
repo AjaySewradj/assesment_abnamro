@@ -1,4 +1,4 @@
-namespace AbnAmroApp.BusinessLogic
+namespace AbnAmroApp.BusinessLogic.Services
 {
     public class CalculationManager : ICalculationManager
     {
@@ -24,6 +24,14 @@ namespace AbnAmroApp.BusinessLogic
             _taskDictionary.Add(taskId, calculationTask);
 
             return taskId;
+        }
+
+        public async Task GetStatus(Guid taskId)
+        {
+            //if (!_taskDictionary.TryGetValue(taskId, out var task))
+            //{
+            //    return
+            //}
         }
 
         private async Task<IList<string>> CalculateWithSimulatedDelays(string firstName, string lastName, IProgress<int> progressReporter)

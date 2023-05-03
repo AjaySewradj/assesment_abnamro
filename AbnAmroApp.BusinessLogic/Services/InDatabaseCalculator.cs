@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace AbnAmroApp.BusinessLogic
+namespace AbnAmroApp.BusinessLogic.Services
 {
     public class InDatabaseCalculator : IInDatabaseCalculator
     {
@@ -25,7 +25,7 @@ namespace AbnAmroApp.BusinessLogic
             try
             {
                 using SqlConnection connection = new SqlConnection(_connectionString);
-                
+
                 SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [dbo].fnCalculateAll(@FirstName, @LastName)", connection);
                 sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
                 sqlCommand.Parameters.AddWithValue("@LastName", lastName);

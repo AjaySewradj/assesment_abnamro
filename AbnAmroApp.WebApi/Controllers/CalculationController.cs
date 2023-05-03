@@ -1,5 +1,5 @@
-using AbnAmroApp.BusinessLogic;
-using AbnAmroApp.WebApi.Models;
+using AbnAmroApp.BusinessLogic.Models;
+using AbnAmroApp.BusinessLogic.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AbnAmroApp.WebApi.Controllers

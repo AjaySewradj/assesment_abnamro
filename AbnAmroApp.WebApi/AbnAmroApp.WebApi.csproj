@@ -14,4 +14,8 @@
     <ProjectReference Include="..\AbnAmroApp.BusinessLogic\AbnAmroApp.BusinessLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

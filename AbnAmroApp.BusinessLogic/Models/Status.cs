@@ -1,4 +1,4 @@
-namespace AbnAmroApp.WebApi.Models
+namespace AbnAmroApp.BusinessLogic.Models
 {
     public enum Status
     {
