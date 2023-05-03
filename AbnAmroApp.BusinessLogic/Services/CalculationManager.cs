@@ -1,9 +1,32 @@
+using AbnAmroApp.BusinessLogic.Models;
+using System.Security.Cryptography;
+
 namespace AbnAmroApp.BusinessLogic.Services
 {
+    public class TaskState
+    {
+        public Guid Id { get; private set; }
+        public int Progress { get; set; }
+        public IProgress<int> ProgressReporter { get; set; }
+        public IList<string> Result { get; set; } = new List<string>();
+
+        public TaskState()
+        {
+            Id = Guid.NewGuid();
+            ProgressReporter = new Progress<int>(UpdateProgress);
+        }
+
+        private void UpdateProgress(int progress)
+        {
+            Progress = progress;
+            Console.WriteLine("Running Step: {0}", progress);
+        }
+    }
+
     public class CalculationManager : ICalculationManager
     {
         private readonly ICalculationService _calculationService;
-        private readonly Dictionary<Guid, Task> _taskDictionary = new Dictionary<Guid, Task>();
+        private readonly Dictionary<Guid, TaskState> _taskDictionary = new Dictionary<Guid, TaskState>();
 
         public CalculationManager(ICalculationService calculationService)
         {
@@ -12,43 +35,41 @@ namespace AbnAmroApp.BusinessLogic.Services
 
         public async Task<Guid> StartCalculation(string firstName, string lastName)
         {
-            IProgress<int> progressReporter = new Progress<int>(progress =>
+            var taskState = new TaskState();
+
+            var calculationTask = Task.Run(() => CalculateWithSimulatedDelays(firstName, lastName, taskState));
+
+            _taskDictionary.Add(taskState.Id, taskState);
+
+            return taskState.Id;
+        }
+
+        public async Task<StatusObject> GetStatus(Guid taskId)
+        {
+            if (!_taskDictionary.TryGetValue(taskId, out var taskState))
             {
-                Console.WriteLine("Running Step: {0}", progress);
-            });
+                return StatusObject.CreateNotFound();
+            }
 
-
-            var taskId = Guid.NewGuid();
-            var calculationTask = CalculateWithSimulatedDelays(firstName, lastName, progressReporter);
-
-            _taskDictionary.Add(taskId, calculationTask);
-
-            return taskId;
+            return StatusObject.CreateSuccess(taskState.Progress, taskState.Result);
         }
 
-        public async Task GetStatus(Guid taskId)
+        private async Task CalculateWithSimulatedDelays(string firstName, string lastName, TaskState taskState)
         {
-            //if (!_taskDictionary.TryGetValue(taskId, out var task))
-            //{
-            //    return
-            //}
-        }
+            Thread.Sleep(5000);
+            taskState.ProgressReporter.Report(20);
+            Thread.Sleep(1000);
+            taskState.ProgressReporter.Report(40);
+            Thread.Sleep(1000);
+            taskState.ProgressReporter.Report(60);
+            Thread.Sleep(1000);
+            taskState.ProgressReporter.Report(80);
+            Thread.Sleep(1000);
 
-        private async Task<IList<string>> CalculateWithSimulatedDelays(string firstName, string lastName, IProgress<int> progressReporter)
-        {
-            Thread.Sleep(1000);
-            progressReporter.Report(20);
-            Thread.Sleep(1000);
-            progressReporter.Report(40);
-            Thread.Sleep(1000);
-            progressReporter.Report(60);
-            Thread.Sleep(1000);
-            progressReporter.Report(80);
-            Thread.Sleep(1000);
             var result = await _calculationService.Calculate(firstName, lastName);
-            progressReporter.Report(100);
+            taskState.ProgressReporter.Report(100);
 
-            return result;
+            taskState.Result = result;
         }
 
     }

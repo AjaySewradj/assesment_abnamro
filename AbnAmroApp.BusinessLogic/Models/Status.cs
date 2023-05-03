@@ -1,9 +1,10 @@
 namespace AbnAmroApp.BusinessLogic.Models
 {
-    public enum Status
+    public static class Status
     {
-        Running,
-        Failed,
-        Completed
+        public const string Running = nameof(Running);
+        public const string Failed = nameof(Failed);
+        public const string Completed = nameof(Completed);
+        public const string NotFound = nameof(NotFound);
     }
 }

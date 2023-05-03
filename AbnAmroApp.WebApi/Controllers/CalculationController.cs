@@ -28,8 +28,8 @@ namespace AbnAmroApp.WebApi.Controllers
         [Route("{id:guid}/status")]
         public async Task<ActionResult<StatusObject>> GetStatus(Guid id)
         {
-            //var result = await _calculationManager.StartCalculation("floop", "poop");
-            return new StatusObject(Status.Running, 20, null);
+            var result = await _calculationManager.GetStatus(id);
+            return result;
         }
     }
 }
