@@ -14,8 +14,10 @@ namespace AbnAmroApp.WebApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddTransient<IInMemoryCalculator, InMemoryCalculator>();
-            builder.Services.AddTransient<IInDatabaseCalculator, InDatabaseCalculator>();
+            // TODO: make the selection configurable
+            //builder.Services.AddTransient<ICalculator, InMemoryCalculator>();
+            builder.Services.AddTransient<ICalculator, InDatabaseCalculator>();
+
             builder.Services.AddSingleton<ICalculationService, CalculationService>();
             builder.Services.AddSingleton<ICalculationManager, CalculationManager>();
 

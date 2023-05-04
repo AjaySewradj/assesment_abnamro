@@ -1,6 +1,6 @@
 ﻿namespace AbnAmroApp.BusinessLogic.Services
 {
-    public class InMemoryCalculator : IInMemoryCalculator
+    public class InMemoryCalculator : ICalculator
     {
         public async Task<IList<string>> Calculate(string firstName, string lastName)
         {

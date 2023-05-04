@@ -2,20 +2,16 @@
 {
     public class CalculationService : ICalculationService
     {
-        private readonly IInMemoryCalculator _inMemoryCalculator;
-        private readonly IInDatabaseCalculator _inDatabaseCalculator;
+        private readonly ICalculator _calculator;
 
-        public CalculationService(IInMemoryCalculator inMemoryCalculator, IInDatabaseCalculator inDatabaseCalculator)
+        public CalculationService(ICalculator calculator)
         {
-            _inMemoryCalculator = inMemoryCalculator;
-            _inDatabaseCalculator = inDatabaseCalculator;
+            _calculator = calculator;
         }
 
         public async Task<IList<string>> Calculate(string firstName, string lastName)
         {
-            // TODO: Make selection configurable
-            return await _inMemoryCalculator.Calculate(firstName, lastName);
-            //return await _inDatabaseCalculator.Calculate(firstName, lastName);
+            return await _calculator.Calculate(firstName, lastName);
         }
     }
 }

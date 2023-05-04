@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AbnAmroApp.BusinessLogic;
+using AbnAmroApp.BusinessLogic.Services;
 
 namespace AbnAmroApp.ConsoleApp
 {
@@ -17,7 +17,12 @@ namespace AbnAmroApp.ConsoleApp
 
             // TODO: Add configuration
             // TODO: Add dependency injection
-            var calculationService = new CalculationService(new InMemoryCalculator(), new InDatabaseCalculator());
+
+            // TODO: make the selection configurable
+            //var calculator = new InMemoryCalculator();
+            var calculator = new InDatabaseCalculator();
+
+            var calculationService = new CalculationService(calculator);
             var results = await calculationService.Calculate(firstName, lastName);
 
             foreach (string line in results)

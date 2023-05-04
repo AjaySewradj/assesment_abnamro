@@ -2,7 +2,7 @@
 
 namespace AbnAmroApp.BusinessLogic.Services
 {
-    public class InDatabaseCalculator : IInDatabaseCalculator
+    public class InDatabaseCalculator : ICalculator
     {
         private readonly string _connectionString;
 
