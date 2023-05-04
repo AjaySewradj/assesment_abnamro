@@ -1,5 +1,4 @@
 using AbnAmroApp.BusinessLogic.Models;
-using System.Security.Cryptography;
 
 namespace AbnAmroApp.BusinessLogic.Services
 {
@@ -60,6 +59,5 @@ namespace AbnAmroApp.BusinessLogic.Services
             taskState.UpdateProgress(Status.Completed, 100);
             taskState.SetResult(result);
         }
-
     }
 }
